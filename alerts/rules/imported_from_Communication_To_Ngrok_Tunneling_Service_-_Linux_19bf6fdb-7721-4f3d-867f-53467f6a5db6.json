@@ -1,0 +1,34 @@
+{
+  "rule_name": "imported_from_Communication_To_Ngrok_Tunneling_Service_-_Linux_19bf6fdb-7721-4f3d-867f-53467f6a5db6",
+  "rule_author": "siembol",
+  "rule_version": 1,
+  "rule_description": "Detects an executable accessing an ngrok tunneling endpoint, which could be a sign of forbidden exfiltration of data exfiltration by malicious actors",
+  "source_type": "Network",
+  "matchers": [
+    {
+      "is_enabled": true,
+      "matcher_type": "REGEX_MATCH",
+      "is_negated": false,
+      "field": "DestinationHostname",
+      "data": ".*\\Qtunnel.us.ngrok.com\\E.*|.*\\Qtunnel.eu.ngrok.com\\E.*|.*\\Qtunnel.ap.ngrok.com\\E.*|.*\\Qtunnel.au.ngrok.com\\E.*|.*\\Qtunnel.sa.ngrok.com\\E.*|.*\\Qtunnel.jp.ngrok.com\\E.*|.*\\Qtunnel.in.ngrok.com\\E.*"
+    }
+  ],
+  "tags": [
+    {
+      "tag_name": "sigma_id",
+      "tag_value": "19bf6fdb-7721-4f3d-867f-53467f6a5db6"
+    },
+    {
+      "tag_name": "sigma_tags",
+      "tag_value": "[attack.exfiltration, attack.command_and_control, attack.t1567, attack.t1568.002, attack.t1572, attack.t1090, attack.t1102, attack.s0508]"
+    },
+    {
+      "tag_name": "sigma_fp",
+      "tag_value": "[Legitimate use of ngrok]"
+    }
+  ],
+  "rule_protection": {
+    "max_per_hour": 30,
+    "max_per_day": 100
+  }
+}

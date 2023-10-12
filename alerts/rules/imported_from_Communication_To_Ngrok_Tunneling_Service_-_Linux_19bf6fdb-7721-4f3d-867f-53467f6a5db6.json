@@ -1,7 +1,7 @@
 {
   "rule_name": "imported_from_Communication_To_Ngrok_Tunneling_Service_-_Linux_19bf6fdb-7721-4f3d-867f-53467f6a5db6",
   "rule_author": "siembol",
-  "rule_version": 1,
+  "rule_version": 2,
   "rule_description": "Detects an executable accessing an ngrok tunneling endpoint, which could be a sign of forbidden exfiltration of data exfiltration by malicious actors",
   "source_type": "Network",
   "matchers": [
